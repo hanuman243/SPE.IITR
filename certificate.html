@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="search-container">
+      <h2>
+        Verify the certificate issued from IIT Roorkee SPE Student Chapter
+      </h2>
+      <input
+        type="text"
+        id="certificateInput"
+        placeholder="Enter Certificate Number..."
+        onkeydown="searchStudent(event)"
+      />
+      <div id="student-info"></div>
+    </div>
+    <script>
+      // Dataset containing student information
+      const studentData = [
+        {
+          name: "Ms. Ritika Kumari",
+          certificate: "SPE/2024/Certificates/001",
+          event: "Officer Experience Certifcate",
+          date: "18-06-2024",
+        },
+        {
+          name: "Mr. Varun Dev Jamwal",
+          certificate: "SPE/2024/GIS-D/001",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Nitin Nagarkoti",
+          certificate: "SPE/2024/GIS-D/002",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Ms. Garima Bhandari",
+          certificate: "SPE/2024/GIS-D/003",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Shubham Lather",
+          certificate: "SPE/2024/GIS-D/004",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Ms. Harshinee R.",
+          certificate: "SPE/2024/GIS-D/005",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mridul Sharma",
+          certificate: "SPE/2024/GIS-D/006",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Atharva Gangurde",
+          certificate: "SPE/2024/GIS-D/007",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Mohd Asjad",
+          certificate: "SPE/2024/GIS-D/008",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Aditya Kumar",
+          certificate: "SPE/2024/GIS-D/009",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Shivkant",
+          certificate: "SPE/2024/GIS-D/010",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Ms. Ritika Kumari",
+          certificate: "SPE/2024/GIS-D/011",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Ms. Sneha Gupta",
+          certificate: "SPE/2024/GIS-D/012",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Ms. Amisha Patel",
+          certificate: "SPE/2024/GIS-D/013",
+          event: "GIS Day Participation",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Mohammad Taqi Daqiq",
+          certificate: "SPE/2024/GIS-D/014",
+          event: "GIS Day Instructor",
+          date: "01-12-2024",
+        },
+        {
+          name: "Ms. Anuradha Karunakalage",
+          certificate: "SPE/2024/Certificates/015",
+          event: "GIS Day Instructor",
+          date: "01-12-2024",
+        },
+        {
+          name: "Mr. Navneet Kumar Srivastava",
+          certificate: "SPE/2024/Certificates/016",
+          event: "GIS Day Technical Support",
+          date: "01-12-2024",
+        },
+      ];
+
+      // Search function triggered on Enter key
+      function searchStudent(event) {
+        if (event.key === "Enter") {
+          const input = document
+            .getElementById("certificateInput")
+            .value.trim();
+          const resultDiv = document.getElementById("student-info");
+
+          // Find the student based on enrollment number
+          const student = studentData.find(
+            (data) => data.certificate === input
+          );
+
+          // Display the result
+          if (student) {
+            resultDiv.innerHTML = `
+                        <p>Name: ${student.name}</p>
+                        <p>Certificate Number: ${student.certificate}</p>
+                        <p>Event: ${student.event}</p>
+                        <p>Issued on: ${student.date}</p>
+                    `;
+          } else {
+            resultDiv.innerHTML =
+              "<p style='color: red;'>No student found with that Enrollment Number.</p>";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
